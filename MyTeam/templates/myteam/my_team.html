@@ -1,0 +1,237 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block head %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+        <title>my team</title>
+    {% endblock %}
+    <!-- links -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock head %}
+
+{% block body %}
+
+    {% if messages %}
+        {% for message in messages %}
+            <div>
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- start banner -->
+
+    <section id="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="banner-detals">
+                        <h1>تیم ما</h1>
+                        <p>خانه / <span>تیم ما</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end banner -->
+
+    <!-- start team skills -->
+
+    <section id="our-team">
+        <div class="container">
+            <div class="row align-items-center row-cols-1 row-cols-md-2">
+                <div class="col">
+                    <div class="our-team">
+                        <h3>ما ماهر هستیم</h3>
+                        <p>استادان به طور جداگانه مژه ها را با خم شدن، طول، رنگ و تراکم انتخاب می کنند. هنگام ساخت، می
+                            توانید از خدمات مدل سازی برای تقویت اثر طبیعی استفاده کنید و یک طرح خلاقانه انتخاب کنید، گل
+                            مژه ها را با درخشش، مهره یا حتی پرهای رنگی تزئین کنید.</p>
+                        <a href="#team" class="book">رزرو وقت</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="skill-progress">
+                        <div class="progress-parent">
+                            <div class="progress-details">
+                                <p>اکستنشن</p>
+                                <p>94%</p>
+                            </div>
+                            <div class="progress-wrapper">
+                                <div class="inner-bar" data-number="94">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="progress-parent">
+                            <div class="progress-details">
+                                <p>اکستنشن</p>
+                                <p>64%</p>
+                            </div>
+                            <div class="progress-wrapper">
+                                <div class="inner-bar" data-number="64">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="progress-parent">
+                            <div class="progress-details">
+                                <p>اکستنشن</p>
+                                <p>84%</p>
+                            </div>
+                            <div class="progress-wrapper">
+                                <div class="inner-bar" data-number="84">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="progress-parent">
+                            <div class="progress-details">
+                                <p>اکستنشن</p>
+                                <p>74%</p>
+                            </div>
+                            <div class="progress-wrapper">
+                                <div class="inner-bar" data-number="74">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end team skills -->
+
+
+    <!-- start brands -->
+
+    <section id="brand">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col text-center">
+                    <div><img src="{% static 'img/logo/partners_01.png' %}" alt=""></div>
+                </div>
+                <div class="col text-center">
+                    <div><img src="{% static 'img/logo/partners_02.png' %}" alt=""></div>
+                </div>
+                <div class="col text-center">
+                    <div><img src="{% static 'img/logo/partners_03.png' %}" alt=""></div>
+                </div>
+                <div class="col  text-center">
+                    <div><img src="{% static 'img/logo/partners_04.png' %}" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end brands -->
+
+
+    <!-- start team -->
+
+    <section id="team">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="heading">
+                        <h3>تیم حرفه ای ما</h3>
+                        <p>
+                            برای رزرو وقت کافیس یک شخص رو انتخاب کنید
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!--  -->
+            {% for ostad in ostads %}
+                <div class="row g-4 mt-4 mb-5 wow fadeInUp">
+                    <div class="col-12 col-md-5 col-lg-4 m-auto">
+                        <a href="{{ ostad.get_absolute_url }}" class="team-item">
+                            {% if ostad.image %}
+                                <img src="{{ ostad.image.url }}" alt="">
+                            {% endif %}
+                            <div class="info">
+                                <h3>{{ ostad.name }}</h3>
+                                <span>{{ ostad.work }}</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+            <!--  -->
+            <div class="row row-cols-2 row-cols-md-auto justify-content-center g-3 wow fadeInUp assistant">
+                {% for team in teams %}
+                    <div class="col">
+                        <a href="{{ team.get_absolute_url }}" class="team-item">
+                            {% if team.image %}
+                                <img src="{{ team.image.url }}" alt="">
+                            {% endif %}
+                            <div class="info">
+                                <h3>{{ team.name }}</h3>
+                                <span>{{ team.work }}</span>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+    <!-- end team -->
+
+
+
+    <!-- back to top btn -->
+    <a href="#banner" id="back_to_top"></a>
+
+
+
+
+    <!-- scripts -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script>
+
+        //scroll-top
+
+        let scroll_btn = document.querySelector('#back_to_top')
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scroll_btn.classList.add('opacity')
+            } else {
+                scroll_btn.classList.remove('opacity')
+            }
+        })
+
+
+        // menu
+        let openBtn = document.querySelector('.open-btn')
+        let menu = document.querySelector('.menu')
+
+        openBtn.addEventListener('click', menuhandle)
+
+        function menuhandle() {
+            menu.classList.toggle('open')
+        }
+
+
+        //
+
+        let progreesInner = document.querySelectorAll('.inner-bar')
+        progreesInner.forEach(n => {
+            n.style.width = n.dataset.number + '%'
+        })
+    </script>
+{% endblock body %}

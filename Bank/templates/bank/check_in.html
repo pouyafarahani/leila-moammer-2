@@ -1,0 +1,256 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load humanize %}
+{% block head %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+        <title>جزییات خرید</title>
+    {% endblock title %}
+    <!-- links -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock head %}
+
+{% block body %}
+    {% for message in messages %}
+        <div>
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        </div>
+    {% endfor %}
+    <!-- start banner -->
+
+    <section id="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="banner-detals wow fadeIn">
+                        <h1>جزییات سفارش</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end banner -->
+
+
+    <!-- start checkout -->
+
+    <section id="checkout">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="user-actions">
+                        <h3>
+                            <i class="fa fa-file-o" aria-hidden="true"></i>
+                            کد تخفیف دارید؟
+                            <a class="Returning" href="#checkout_coupon" data-bs-toggle="collapse"
+                               aria-expanded="true">برای نوشتن کد اینجا کلیک کنید</a>
+
+                        </h3>
+                        <div id="checkout_coupon" class="collapse" data-parent="#accordion">
+                            <div class="checkout_info coupon_info">
+                                <form action="#">
+                                    <input placeholder="کد تخفیف" type="text">
+                                    <button type="submit">کوپن بزنید</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- information -->
+            <div class="row row-cols-1 row-cols-lg-2 mt-5">
+                <div class="col">
+                    <div class="heading-checkout">
+                        <h3>جزییات حساب</h3>
+                    </div>
+                    <form action="{% url 'order:check_is_valid' %}" method="post">
+                        {% csrf_token %}
+                        <div class="reserv-form">
+                            <div class="row row-cols-1 row-cols-md-2 g-3">
+                                <div class="col">
+                                    <div><label for="">نام <span>*</span></label><input type="text" placeholder="فاطمه"
+                                                                                        name="first_name">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div><label for="">نام خانوادگی <span>*</span></label><input type="text"
+                                                                                                 placeholder="احمدی"
+                                                                                                 name="last_name"
+                                                                                                 value="{{ user.last_name }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-cols-1 row-cols-md-2 g-3">
+                                <div class="col">
+                                    <div><label for="">شماره موبایل <span>*</span></label><input type="tel"
+                                                                                                 placeholder="0987654323"
+                                                                                                 name="phone"
+                                                                                                 value="{{ user.phone }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-cols-1">
+                                <div class="col-12 ">
+                                    <div class="select_form_select">
+                                        <label for="countru_name">شهر <span>*</span></label>
+                                        <select class="select_option" name="city" id="countru_name">
+                                            <option value="2">تهران</option>
+                                            <option value="3">مشهد</option>
+                                            <option value="4">شیراز</option>
+                                            <option value="5">اصفهان</option>
+                                            <option value="6">قم</option>
+                                            <option value="7">قزوین</option>
+                                            <option value="8">یزد</option>
+                                            <option value="9">کرمان</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-cols-1">
+                                <div class="col-12 ">
+                                    <div><label for="">آدرس <span>*</span></label><textarea name="address" id=""
+                                                                                            rows="4"
+                                                                                            placeholder="تهران"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="col">
+                    <div class="heading-checkout">
+                        <h3>جزییات سفارش</h3>
+                    </div>
+                    <div>
+                        <table class="finall-product">
+                            <thead>
+                            <th><span></span></th>
+                            <th><span>محصول</span></th>
+                            <th><span>قیمت</span></th>
+                            <th><span>تعداد</span></th>
+                            </thead>
+
+                            <tbody>
+                            {% for item in cart %}
+                                <tr>
+                                    {% if item.product_obj.image %}
+                                        <td><a href=""><img src="{{ item.product_obj.image.url }}"
+                                                            alt=""></a>
+                                        </td>
+                                    {% endif %}
+                                    <td><span>
+
+                                                    {{ item.product_obj.title }}
+                                            </span>
+                                    </td>
+                                    <td><span>
+                                                {{ item.product_obj.price|intcomma:False }}&nbsp;ریال
+                                            </span>
+                                    </td>
+                                    <td><span>
+                                                <div class="product_variant quantity cart-quantity">
+                                                    <input min="0" max="100" value="{{ item.quantity }}" type="number"
+                                                           readonly
+                                                           name="quantity">
+                                                </div>
+                                            </span></td>
+
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <!--start payment mathos -->
+                    <div class="heading-checkout">
+                        <h4>نحوه پرداخت</h4>
+                    </div>
+                    <div class="payment_method">
+                        <div class="panel-default">
+                            <input id="payment" name="check_method" type="radio" data-target="createp_account">
+                            <a href="#method" data-bs-toggle="collapse" aria-controls="method" class="collapsed"
+                               aria-expanded="false">درگاه ملت</a>
+                            <div id="method" class="one collapse" data-parent="#accordion">
+                                <div class="card-body1">
+                                    <p>
+                                        پرداخت از طریق درگاه ملت
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-default">
+                            <input id="payment_defult" name="check_method" type="radio"
+                                   data-target="createp_account">
+                            <a href="#collapsedefult" data-bs-toggle="collapse" aria-controls="collapsedefult"
+                               class="collapsed" aria-expanded="false">زرین پال <img
+                                    src="{% static 'img/icon/papyel.png' %}" alt=""></a>
+                            <div id="collapsedefult" class="collapse one" data-parent="#accordion">
+                                <div class="card-body1">
+                                    <p>
+                                        پرداخت از طریق زرین پال
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end payment mathos -->
+
+
+                    <!-- start pay btn -->
+                    <div class="row">
+                        <div class="col text-center">
+                            <button class="submit tab-link">
+                                همینک پرداخت کنید
+                            </button>
+                        </div>
+                    </div>
+                    </form>
+                    <!-- start pay btn -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end checkout -->
+
+
+
+    <!-- back to top btn -->
+    <a href="#banner" id="back_to_top"></a>
+
+
+
+
+    <!-- scripts -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+
+        // wow
+        new WOW().init();
+
+
+        //niceSelect
+        $('.select_option').niceSelect();
+
+    </script>
+{% endblock body %}

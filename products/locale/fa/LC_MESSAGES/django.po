@@ -1,0 +1,50 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-14 20:40+0330\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: .\models.py:10
+msgid "title"
+msgstr ""
+
+#: .\models.py:12
+msgid "price"
+msgstr ""
+
+#: .\models.py:13
+msgid "Image"
+msgstr ""
+
+#: .\models.py:15
+msgid "time product create"
+msgstr ""
+
+#: .\models.py:16
+msgid "time product edit"
+msgstr ""
+
+#: .\models.py:36
+msgid "what is your point"
+msgstr ""
+
+#: .\templates\shop\product_detail.html:9
+msgid "product detail"
+msgstr ""
+
+#: .\templates\shop\product_detail.html:109
+msgid "$"
+msgstr ""

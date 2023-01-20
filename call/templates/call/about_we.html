@@ -1,0 +1,359 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block head %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+        <title>درباره ما</title>
+    {% endblock title %}
+    <!-- links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock head %}
+
+{% block body %}
+
+    <!-- start banner -->
+
+    <section id="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="banner-detals wow fadeIn">
+                        <h1>درباره ما</h1>
+                        <p>خانه / <span>درباره ما</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end banner -->
+
+
+    <!-- start about -->
+
+    <section id="about-desciption">
+        <div class="container">
+            <div class="row g-3 align-items-center wow slideInUp">
+                <div class=" col-lg-5 text-center">
+                    <div class="photo-about"><img src="{% static 'img/v.jpg' %}" alt=""></div>
+                </div>
+                <div class=" col-lg-7">
+                    <div class="aboutus-details">
+                        <h2>
+                            درباره ما
+                        </h2>
+                        <p>آکادمی معمر اولین و تنها مرکز تخصصی اکستنشن مژه در نازی آباد است .این مرکز تخصصی زیر نظر لیلا
+                            معمر؛ مستر آکادمی لوتوس روسیه و تنها آرتیست و عضو آکادمی فیلش اروپا در جنوب تهران و مستر
+                            اسیستنت دوره های فیلش اروپا در ایران است که برگزاری ورکشاپ های تخصصی اکستنشن مژه در تهران،
+                            کیش و سایر شهرهای ایران را در کارنامه فعالیت حرفه ای خود دارد.در این مرکز تاکنون بیش از ۱۰۰
+                            هنرجوی موفق آموزش دیده و رهسپار مراکز کار شده اند.
+                        </p>
+                        <p>
+                            آموزش خدمات تخصصی در این مرکز به صورت گروهی و خصوصی برگزار می‌شود و در پایان هر دوره به
+                            هنرجویان مدرک معتبر بین المللی ارائه می شود. در این مرکز تخصصی همچنین، بیش از ۱۰ مژه کار
+                            حرفه ای فعالیت می‌کنند و سعی دارند تا با رفع نیاز مشتریان، آسایش و آرامش را برای آنان به
+                            ارمغان آورند.در آکادمی معمر علاوه بر انجام اکستنشن، لیفت و لمینت مژه، ابرو و کاشت موقت هم
+                            انجام می شود</p>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- end about -->
+
+    <!-- start WE LOVE WHAT WE DO -->
+
+    <section id="works">
+        <div class="container">
+            <div class="row ">
+                <div class="col">
+                    <div class="heading wow slideInDown">
+                        <h3>سوال های متناوب</h3>
+                        <p>بهتر است در یک کسب و کار متخصص خوبی باشید تا اینکه در چندین کسب و کار متوسط ​​باشید.
+                            استودیوی مژه ما مانند هیچ چیز دیگری در مورد آن می داند.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="items-list">
+                        <div class="row row-cols-2 row-cols-lg-4 g-4">
+                            <div class="col">
+                                <div class="item wow flipInX">
+                                    <img src="{% static 'img/icon_01-1.png' %}" alt="">
+                                    <div>
+                                        <h4>.مژه ها از چشمان ما محافظت می کنند !</h4>
+                                        <p>مژه ها هم مانند ابروهای ما ، موهای ریزی هستند که روی صورت ما قرار دارند و
+                                            آلودگی ، عرق ، آب و سایر بقایای ناخواسته را از سر راه خارج می کنند.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="item wow flipInX">
+                                    <img src="{% static 'img/icon_02-1.png' %}" alt="">
+                                    <div>
+                                        <h4>روزانه چند تار از مژه ها می ریزند !</h4>
+                                        <p>در سه ماهگی ، چرخه رشد مژه بسیار کند تر از موهای سر میشود – این به این دلیل
+                                            است که مژه ها به اندازه موها بلند نشوند و همیشه خیلی خیلی کوتاه تر از آنها
+                                            باشند.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="item wow flipInX">
+                                    <img src="{% static 'img/icon_03-1.png' %}" alt="">
+                                    <div>
+                                        <h4>تفاوت زیادی بین مژه های بالا و پایین شما وجود دارد !</h4>
+                                        <p>موهای روی قسمت بالایی چشم شما بسیار پرتر از مژه های پایین شما است. در حقیقت ،
+                                            مژه های بالایی تقریباً دو برابر پرتر هستند. تقریبا دو یا سه برابر مژه های
+                                            پایین هستند.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="item wow flipInX">
+                                    <img src="{% static 'img/icon_04.png' %}" alt="">
+                                    <div>
+                                        <h4>.مژه ها در سه دوره رشد می کند !</h4>
+                                        <p>سه مرحله با نام های : فاز آناژن (دوره رشد فعال) ، فاز کاتاژن (دوره انتقالی) و
+                                            فاز تلوژن (دوره استراحت) وجود دارد. و در هر زمان مشخص ، 90٪ از مژه های شما
+                                            در مرحله رشد فعال قرار دارند که تقریباً 16/0 میلی متر در روز رشد می کنند.
+                                            بنابراین ، اگر مژه های خود را برش دهید ، دوباره رشد می کند … فقط پنج ماه طول
+                                            می کشد.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end WE LOVE WHAT WE DO -->
+
+
+    <!-- start team -->
+
+    <section id="team">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="heading">
+                        <h3>تیم حرفه ای ما</h3>
+                        <p>
+                            برای رزرو وقت و درباره شخص کافیس یک نفر رو انتخاب کنید
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!--  -->
+            {% for ostad in ostads %}
+                <div class="row g-4 mt-4 mb-5 wow fadeInUp">
+                    <div class="col-12 col-md-5 col-lg-4 m-auto">
+                        <a href="{{ ostad.get_absolute_url }}" class="team-item">
+                            {% if ostad.image %}
+                                <img src="{{ ostad.image.url }}" alt="">
+                            {% endif %}
+                            <div class="info">
+                                <h3>{{ ostad.name }}</h3>
+                                <span>{{ ostad.work }}</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+            <!--  -->
+            <div class="row row-cols-2 row-cols-md-auto justify-content-center g-3 wow fadeInUp assistant">
+                {% for team in teams %}
+                    <div class="col">
+                        <a href="{{ team.get_absolute_url }}" class="team-item">
+                            {% if team.image %}
+                                <img src="{{ team.image.url }}" alt="">
+                            {% endif %}
+                            <div class="info">
+                                <h3>{{ team.name }}</h3>
+                                <span>{{ team.work }}</span>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+    <!-- end team -->
+
+
+    <!-- start descriptions -->
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="descriptions-section wow slideInUp">
+                        <div>
+                            <img src="{% static 'img/IMG.PNG' %}" alt="">
+                        </div>
+                        <div class="about-studio">
+                            <span>چیزی که ما پیشنهاد میدیم</span>
+                            <h2>مختصری درباره اموزش
+                            </h2>
+                            <p>
+                                آموزش خدمات تخصصی در این مرکز به صورت گروهی و خصوصی برگزار می‌شود و در پایان هر دوره به
+                                هنرجویان مدرک معتبر بین المللی ارائه می شود. در این مرکز تخصصی همچنین، بیش از ۱۰ مژه کار
+                                حرفه ای فعالیت می‌کنند و سعی دارند تا با رفع نیاز مشتریان، آسایش و آرامش را برای آنان به
+                                ارمغان آورند.در آکادمی معمر علاوه بر انجام اکستنشن، لیفت و لمینت مژه، ابرو و کاشت موقت
+                                هم انجام می شود.
+                                آموزش در ۴ جلسه ،۴ ساعته برگزار شده و به پذیرفته شدگان نهایی، مدرک بین المللی لوتوس
+                                روسیه سطح بیسیک ارائه خواهد شد.
+                                در طول دوره متریال رايگان در اختيار هنرجو قرار داده می شود و جزوه کامل در قالب فرمت pdf
+                                نیز به آنان ارائه می شود.
+                                بعد از اتمام کلاس، پشتیبانی نامحدود می باشد و هنرجویان موفق دوره ها امکان استخدام در
+                                آکادمی معمر را خواهند داشت.
+
+                            </p>
+                            <ul>
+                                <li>شناخت ابزار کار
+                                </li>
+                                <li>شناخت انواع مپ هاي مختلف
+                                </li>
+                                <li>اكستنشن كلاسيك
+                                </li>
+                                <li>فن سازي با سرعت بالا</li>
+                                <li>شناخت ابزار کار
+                                </li>
+                                <li>شناخت انواع مپ هاي مختلف
+                                </li>
+                                <li>اكستنشن كلاسيك
+                                </li>
+                                <li>فن سازي با سرعت بالا</li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end descriptions -->
+
+
+    <!-- start PEOPLE SAY -->
+
+    <section id="people" class="people-section">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="heading">
+                        <h3>نظر هنرجو های دوره</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="owl-carousel">
+                        <div class="item">
+                            <div class="people">
+                                <img src="{% static 'img/download.png' %}" alt="">
+                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                    گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای
+                                    شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می
+                                    باشد</p>
+                                <span>فاطمه احمدی</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="people">
+                                <img src="{% static 'img/download.png' %}" alt="">
+                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                    گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای
+                                    شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می
+                                    باشد</p>
+                                <span>فاطمه احمدی</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="people">
+                                <img src=".{% static 'img/download.png' %}" alt="">
+                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                    گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای
+                                    شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می
+                                    باشد</p>
+                                <span>فاطمه احمدی</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="people">
+                                <img src="{% static 'img/download.png' %}" alt="">
+                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                    گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای
+                                    شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می
+                                    باشد</p>
+                                <span>فاطمه احمدی</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end PEOPLE SAY -->
+
+    <!-- back to top btn -->
+    <a href="#banner" id="back_to_top"></a>
+
+
+    <!-- scripts -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+
+
+        // wow
+        new WOW().init();
+
+        // testimonial
+        $('.owl-carousel').owlCarousel({
+            rtl: true,
+            loop: true,
+            margin: 25,
+            nav: false,
+            dots: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 1
+                },
+                1000: {
+                    items: 1
+                }
+            }
+        })
+
+    </script>
+{% endblock body %}

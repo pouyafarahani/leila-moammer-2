@@ -1,0 +1,529 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load jalali_tags %}
+{% load english_to_persian_tags %}
+{% load humanize %}
+{% block head %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+        <title>درباره {{ user.name }}</title>
+    {% endblock title %}
+    <!-- links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+
+        #rezerv {
+            max-width: 500px;
+            margin: auto;
+            margin-bottom: 50px;
+            margin-top: 50px;
+            border: 1px solid gray;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+
+        #rezerv > div:nth-child(2) {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid gray;
+        }
+
+
+        #rezerv > div:nth-child(3) {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid gray;
+        }
+
+
+        #rezerv > div:nth-child(4) {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid gray;
+        }
+
+
+        #sal {
+            background-color: #efefef;
+            border-radius: 5px;
+            border: unset;
+            width: 48%;
+            padding: 4px 10px;
+
+        }
+
+
+        #mah {
+            background-color: #efefef;
+            border-radius: 5px;
+            border: unset;
+            width: 48%;
+            padding: 4px 10px;
+
+        }
+
+
+        #rooz {
+            background-color: #efefef;
+            border-radius: 5px;
+            border: unset;
+            width: 48%;
+            padding: 4px 10px;
+
+        }
+
+
+        #time {
+            background-color: #efefef;
+            border-radius: 5px;
+            border: unset;
+            width: 48%;
+            padding: 4px 10px;
+
+        }
+
+        .name {
+            background-color: #efefef;
+            border-radius: 5px;
+            border: unset;
+            width: 48%;
+            padding: 4px 10px;
+
+        }
+
+        .phone {
+            background-color: #efefef;
+            border-radius: 5px;
+            border: unset;
+            width: 48%;
+            padding: 4px 10px;
+
+        }
+
+        .service {
+            background-color: #efefef;
+            border-radius: 5px;
+            border: unset;
+            width: 48%;
+            padding: 4px 10px;
+
+        }
+
+
+        .btn {
+            width: 48%;
+            background-color: #60d960;
+        }
+
+
+    </style>
+{% endblock head %}
+
+{% block body %}
+
+    {% if messages %}
+        {% for message in messages %}
+            <div>
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <!-- start banner -->
+
+    <section id="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="banner-detals wow fadeIn">
+                        <h1>درباره من</h1>
+                        <p>خانه / <span>درباره من</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end banner -->
+
+
+
+    <!-- start about -->
+
+    <section id="biography">
+        <div class="container">
+            <div class="row g-3 align-items-center">
+                <div class="col-md-6 col-lg-5 ">
+                    {% if user.image %}
+                        <div class="wow slideInRight"><img src="{{ user.image.url }}" alt=""></div>
+                    {% endif %}
+                </div>
+                <div class="col-md-6 col-lg-7">
+                    <div class="biography wow slideInLeft">
+                        <div class="fullname">
+                            <h2>{{ user.name }}</h2>
+                            <p>{{ user.work }}</p>
+                        </div>
+
+                        <div class="about-text">
+                            <p>
+                                {{ user.description_me|safe }}
+                            </p>
+                        </div>
+
+                        <div class="studio">
+                            <h5>درباره مجموعه</h5>
+                            <p>
+                                {{ user.darbare_majmoee }}
+                            </p>
+                        </div>
+                        <div class="information">
+                            <ul>
+                                <li>
+                                    <p>تجربه :</p>
+                                    <span>{{ user.status }}</span>
+                                </li>
+                                <li>
+                                    <p>مقام :</p>
+                                    <span>{{ user.specialty }}</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end about -->
+
+
+    <!-- start SUMMARY SKILLS -->
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="summer-skill wow slideInUp">
+                        <h3>خلاصه مهارت ها</h3>
+                        <p>
+                            {{ user.description_short|safe }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end SUMMARY SKILLS -->
+
+    <!-- start servic -->
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="row row-cols-1 row-cols-md-2 g-3 align-items-center">
+                        <div class="col">
+                            <div class="service-heading wow slideInRight">
+                                <h3>محبوبترین
+                                    خدمات
+                                </h3>
+                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                    گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای
+                                    شرایط فعلی تکنولوژی مورد نیاز</p>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="servic-section wow slideInLeft">
+                                <div class="servic-item">
+                                    <p>کلاسیک</p>
+                                    <div></div>
+                                    <span>{{ user.price1|intcomma:False }} تومان</span>
+                                </div>
+                                <p>1 عدد مصنوعی روی هر یک از مژه های آن قرار می گیرد.
+                                    مدت زمان 1.5-2 ساعت</p>
+                                <div class="servic-item">
+                                    <p>اسپایک</p>
+                                    <div></div>
+                                    <span>{{ user.price2|intcomma:False }} تومان</span>
+                                </div>
+                                <p>1 عدد مصنوعی روی هر یک از مژه های آن قرار می گیرد.
+                                    مدت زمان 1.5-2 ساعت</p>
+
+                                <div class="servic-item">
+                                    <p>والیوم</p>
+                                    <div></div>
+                                    <span>{{ user.price3|intcomma:False }}&nbsp;تومان</span>
+                                </div>
+
+                                <p>1 عدد مصنوعی روی هر یک از مژه های آن قرار می گیرد.
+                                    مدت زمان 1.5-2 ساعت</p>
+                                <div class="servic-item">
+                                    <p>مگاوالیوم</p>
+                                    <div></div>
+                                    <span>{{ user.price4|intcomma:False }} تومان</span>
+                                </div>
+                                <p>1 عدد مصنوعی روی هر یک از مژه های آن قرار می گیرد.
+                                    مدت زمان 1.5-2 ساعت</p>
+
+                                <div class="servic-item">
+                                    <p>ترمیم</p>
+                                    <div></div>
+                                    <span>{{ user.price5|intcomma:False }} تومان</span>
+                                </div>
+                                <div class="btn-section">
+                                    <a href="#reserv" class="book">رزرو وقت</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end servic -->
+
+
+    <!-- start portfolio -->
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="summer-skill">
+                        <h3>نمونه کارها</h3>
+                        <div>
+                            <div class="tab-content wow zoomIn">
+                                <div class="content active ">
+                                    {% if user.image1 %}
+                                        <div><img
+                                                src="{{ user.image1.url }}"
+                                                alt=""></div>
+                                    {% endif %}
+
+                                    {% if user.image2 %}
+                                        <div><img
+                                                src="{{ user.image2.url }}"
+                                                alt=""></div>
+                                    {% endif %}
+
+                                    {% if user.image3 %}
+                                        <div><img
+                                                src="{{ user.image3.url }}"
+                                                alt=""></div>
+                                    {% endif %}
+
+                                    {% if user.image4 %}
+                                        <div><img
+                                                src="{{ user.image4.url }}"
+                                                alt=""></div>
+                                    {% endif %}
+
+                                    {% if user.image5 %}
+                                        <div><img
+                                                src="{{ user.image5.url }}"
+                                                alt=""></div>
+                                    {% endif %}
+
+                                    {% if user.image6 %}
+                                        <div><img src="{{ user.image6.url }}"
+                                                  alt=""></div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </section>
+
+    <!-- end portfolio -->
+
+
+    <!-- start reserv -->
+
+    <form class="form" method="POST" action={% url 'reserv_team' %} id="rezerv">
+
+        {% csrf_token %}
+        <div style="display:flex;justify-content: space-between;">
+
+            <select id="sal" class="sal" name="sallist" form="rezerv">
+                <option value="0000">انتخاب سال</option>
+                <option value="1401">1401</option>
+                <option value="1402">1402</option>
+            </select>
+
+            <select class="mah" id="mah" name="mahlist" form="rezerv">
+
+            </select>
+        </div>
+
+
+        <div style="display:flex;justify-content: space-between;">
+
+            <select id="rooz" class="rooz" name="roozlist" form="rezerv">
+            </select>
+
+            <select id="time" class="time" name="timelist" form="rezerv">
+            </select>
+        </div>
+
+
+        <div style="display:flex;justify-content: space-between;">
+            <input name="name" class="name" type="text" placeholder="نام و نام خانوادگی"/>
+            <input name="phone" class="phone" type="tel" placeholder="شماره تماس"/>
+        </div>
+
+        <div style="display:flex;justify-content: space-between;">
+
+            <select id="service" placeholder="خدمات" class="service" name="service" form="rezerv">
+                <option value="اکستنشن اسپایک">اکستنشن اسپایک</option>
+                <option value="اکستنشن والیوم">اکستنشن والیوم</option>
+                <option value="اکستنشن مگا والیوم">اکستنشن مگا والیوم</option>
+                <option value="لیفت و بوتاکس تراپی مژه">لیفت و بوتاکس تراپی مژه</option>
+                <option value="لیفت و لمینت ابرو">لیفت و لمینت ابرو</option>
+                <option value="ترمیم اکستنشن والیوم">ترمیم اکستنشن والیوم</option>
+                <option value="ترمیم اکستنشن مگاوالیوم">ترمیم اکستنشن مگاوالیوم</option>
+            </select>
+            <input name="id_team" type="text" id="id_team" value={{ user.id }} style="display:none"/>
+            <input type="submit" class="btn" value="رزرو">
+        </div>
+
+
+    </form>
+
+    <!-- start reserv -->
+
+
+    <!-- back to top btn -->
+    <a href="#banner" id="back_to_top"></a>
+
+
+
+
+    <!-- scripts -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+
+        $(document).ready(function () {
+            
+            function get_month_number(m) {
+                a = ["فروردین", "اردیبهشت", "خرداد", "تیر", "مرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"]
+                return (a.indexOf(m) + 1)
+            }
+
+
+            $('.sal').on('change', function (e) {
+                
+                rr = $('.rooz')
+                rr.empty()
+                rr = $('.time')
+                rr.empty()
+                $.ajax({
+                    method: "POST",
+                    url: "/checkyear_team",
+                    data: {checkyear: e.target.value,id_team:{{ user.id }}},
+
+                })
+                    .done(function (msg) {
+                        var month_cantbee = msg['month']
+                        rr = $('.mah')
+                        rr.empty()
+                        for (var i = 0; i < month_cantbee.length + 1; i++) {
+                            if (i == 0) {
+                                rr.append(`<option value="0000">
+                                    انتخاب ماه
+                                    </option>`);
+                            } else {
+                                rr.append(`<option value="${get_month_number(month_cantbee[i - 1])}">
+                                    ${month_cantbee[i - 1]}
+                                    </option>`);
+                            }
+                        }
+                    });
+            })
+
+
+            /**** mah */
+
+            $('.mah').on('change', function (e) {
+                name=$(".fullname h2").text()
+                rr = $('.rooz')
+                rr.empty()
+                rr = $('.time')
+                rr.empty()
+                $.ajax({
+                    method: "POST",
+                    url: "/checkmounth_team",
+                    data: {mounth: e.target.value,id_team:{{ user.id }}},
+
+                })
+                    .done(function (msg) {
+                        var freedays = msg['freeday']
+                        rr = $('.rooz')
+                        rr.empty()
+                        for (var i = 0; i < freedays.length + 1; i++) {
+                            if (i == 0) {
+                                rr.append(`<option value="0000">
+                                    انتخاب روز
+                                    </option>`);
+                            } else {
+                                rr.append(`<option value="${freedays[i - 1]}">
+                                    ${freedays[i - 1]}
+                                    </option>`);
+                            }
+
+                        }
+                    });
+            })
+
+
+            /**** rooooz ****/
+            $('.rooz').on('change', function (e) {
+                name=$(".fullname h2").text()
+                rr = $('.time')
+                rr.empty()
+                $.ajax({
+                    method: "POST",
+                    url: "/checkrooztime_team",
+                    data: {rooz: e.target.value,id_team:{{ user.id }}},
+
+                })
+                    .done(function (msg) {
+                        var freetime = msg['freetime']
+                        rr = $('.time')
+                        rr.empty()
+                        for (var i = 0; i < freetime.length + 1; i++) {
+                            if (i == 0) {
+                                rr.append(`<option value="0000">
+                                    انتخاب ساعت
+                                    </option>`);
+                            } else {
+                                rr.append(`<option value="${freetime[i - 1]}">
+                                    ${freetime[i - 1]}
+                                    </option>`);
+                            }
+                        }
+                    });
+            })
+
+        })
+    </script>
+
+{% endblock body %}

@@ -1,0 +1,328 @@
+{% extends '_base.html' %}
+{% load crispy_forms_filters %}
+{% load jalali_tags %}
+{% load static %}
+{% load humanize %}
+{% block head %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+        <title>جزییات {{ product.title }}</title>
+    {% endblock title %}
+    <!-- links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock head %}
+
+{% block body %}
+
+    {% if messages %}
+        {% for message in messages %}
+            <div>
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <!-- start banner -->
+
+    <section id="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="banner-detals wow fadeIn">
+                        <h1>جزییات محصول</h1>
+                        <p>خانه / <span>جزییات محصول</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end banner -->
+
+
+    <!-- start product detail -->
+
+    <section class="product_details mt-70 mb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-6">
+                    <div class="product-details-tab">
+                        <div id="img-1">
+                            {% if product.image %}
+                                <a href="#">
+                                    <img id="zoom1" src="{{ product.image.url }}"
+                                         data-zoom-image="{{ product.image.url }}" alt="big-1">
+                                </a>
+                            {% endif %}
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-lg-7 col-md-6">
+                    <div class="product_d_right wow slideInLeft">
+                        <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                            {% csrf_token %}
+                            <div class="price_box rtl">
+                                <span class="current_price">{{ product.price|intcomma:False }} ریال</span>
+
+                            </div>
+                            <div class="product_desc">
+                                <p>
+                                    {{ product.title }}
+                                </p>
+                            </div>
+
+                            <div class="features">
+                                <ul>
+                                    <li>ویژگی محصول</li>
+                                    <li>ویژگی محصول</li>
+                                    <li>ویژگی محصول</li>
+                                </ul>
+                            </div>
+
+                            <div class="product_variant quantity">
+                                <label>
+                                    <input id="number" min="1" max="100" type="number" value="1" name="quantity"/>
+                                </label>
+                                <button class="button" type="submit">افزودن به سبد خرید</button>
+                            </div>
+
+                            <div class="categories-tag">
+                                <h4>دسته بندی:</h4>
+                                <ul>
+                                    <li><a href="">مراقبتی ،</a></li>
+                                    <li><a href="">مژه ،</a></li>
+                                    <li><a href="">پوست ،</a></li>
+                                    <li><a href="">مو</a></li>
+                                </ul>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end product details -->
+
+
+
+    <!-- start product info -->
+
+    <section class="product_d_info mb-65">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="product_d_inner">
+                        <div class="product_info_button">
+                            <ul class="nav" role="tablist" id="nav-tab">
+                                <li>
+                                    <a class="active" data-toggle="tab" href="#info" role="tab" aria-controls="info"
+                                       aria-selected="false">توضیحات</a>
+                                </li>
+
+                                <li>
+                                    <a data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews"
+                                       aria-selected="false">نظرات</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="info" role="tabpanel">
+                                <div class="product_info_content">
+                                    <p>
+                                        {{ product.description }}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="reviews" role="tabpanel">
+                                <div class="reviews_wrapper">
+                                    <h2>{{ product.comments.all|length }} نظر درباره محصول</h2>
+                                    <div class="reviews_comment_box">
+                                        <div class="comment_thmb">
+                                            <img src="{% static 'img/blog/comment2.jpg' %}" alt="">
+                                        </div>
+                                        {% for comment in comments %}
+                                            <div class="comment_text">
+                                                <div class="reviews_meta">
+                                                    <div class="star_rating">
+                                                        <ul>
+                                                            <li><a href="#"><i class="fa-solid fa-star"></i></a></li>
+                                                            <li><a href="#"><i class="fa-solid fa-star"></i></a></li>
+                                                            <li><a href="#"><i class="fa-solid fa-star"></i></a></li>
+                                                            <li><a href="#"><i class="fa-solid fa-star"></i></a></li>
+                                                            <li><a href="#"><i class="fa-solid fa-star"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <p>
+                                                        <strong>{{ comment.datetime_create|to_jalali:'%y/%m/%d' }}</strong>&nbsp;{{ comment.user }}
+                                                    </p>
+                                                    <span>{{ comment.text }}</span>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+
+                                    </div>
+                                    <div class="comment_title">
+                                        <h2>یک نظر اضافه کنید </h2>
+                                    </div>
+                                    {% if user.is_authenticated %}
+                                        <div class="product_review_form">
+                                            <form action="{% url 'products:product_detail' product.id %}" method="post">
+                                                {% csrf_token %}
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <label for="review_comment">نظر شما </label>
+                                                        {{ comment_form|crispy }}
+                                                    </div>
+                                                </div>
+                                                <button type="submit">ارسال</button>
+                                            </form>
+                                        </div>
+                                    {% else %}
+                                        برای گذاشتن نظر لطفا با اکانت خود ورود کنید
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end product info -->
+
+
+    <!-- start related product -->
+
+    <div id="related">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h3>محصولات مرتبط</h3>
+                </div>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3 wow slideInUp">
+                <div class="col">
+                    <a href="" class="product-card">
+                        <div class="product-image"><img src="{% static 'img/product_img_09_02-800x1067.jpg' %}"
+                                                        alt="">
+                            <button>افزودن به سبد خرید</button>
+                        </div>
+                        <div class="product-info">
+                            <p>ست 3 براش - کیت سه نفره چشم</p>
+                            <div>
+                                <span>ریال 85،000 </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="" class="product-card">
+                        <div class="product-image"><img src="{% static 'img/product_img_08-800x1067.jpg' %}"
+                                                        alt="">
+                            <button>افزودن به سبد خرید</button>
+                        </div>
+                        <div class="product-info">
+                            <p>ست 3 براش - کیت سه نفره چشم</p>
+                            <div>
+                                <del>ریال 185،000</del>
+                                <span>ریال 85،000 </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="" class="product-card">
+                        <div class="product-image"><img src="{% static 'img/product_img_07-800x1067.jpg' %}"
+                                                        alt="">
+                            <button>افزودن به سبد خرید</button>
+                        </div>
+                        <div class="product-info">
+                            <p>ست 3 براش - کیت سه نفره چشم</p>
+                            <div>
+                                <span>ریال 85،000 </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="" class="product-card">
+                        <div class="product-image"><img src="{% static 'img/product_img_07-800x1067.jpg' %}"
+                                                        alt="">
+                            <button>افزودن به سبد خرید</button>
+                        </div>
+                        <div class="product-info">
+                            <p>ست 3 براش - کیت سه نفره چشم</p>
+                            <div>
+                                <span>ریال 85،000 </span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- end related product -->
+
+
+    <!-- back to top btn -->
+    <a href="#banner" id="back_to_top"></a>
+
+
+
+    <!-- zoom -->
+    <div class="zoomContainer"
+         style="transform: translateZ(0);position:absolute;left:733px;top:489.01251220703125px;height:559px;width:559px;">
+        <div class="zoomWindowContainer" style="width: 400px;">
+            <div style="z-index: 999; overflow: hidden; margin-left: 0px; margin-top: 0px; background-position: 0px 0px; width: 559px; height: 559px; float: left; display: none; cursor: crosshair; background-repeat: no-repeat; position: absolute; background-image: url(./assets/img/product_img_09_02-800x1067.jpg);"
+                 class="zoomWindow">&nbsp;
+            </div>
+        </div>
+    </div>
+
+
+    <!-- scripts -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="{% static 'js/jquery.ui.js' %}"></script>
+    <script src="{% static 'js/jquery.elevatezoom.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+
+        // wow
+        new WOW().init();
+
+
+        // tab
+        $('#nav-tab a,#nav-tab2 a').on('click', function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        })
+
+
+        /*---elevateZoom---*/
+        $("#zoom1").elevateZoom({
+            gallery: 'gallery_01',
+            responsive: true,
+            cursor: 'crosshair',
+            zoomType: 'inner'
+
+        });
+
+    </script>
+{% endblock body %}

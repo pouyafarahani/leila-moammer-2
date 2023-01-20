@@ -1,0 +1,176 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load humanize %}
+{% load jalali_tags %}
+{% block head %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+        <title>پروفایل</title>
+    {% endblock title %}
+    <!-- links -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock head %}
+
+{% block body %}
+
+    {% if messages %}
+        {% for message in messages %}
+            <div>
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <!-- start banner -->
+
+    <section id="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="banner-detals wow fadeIn">
+                        <h1>حساب کاربری</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end banner -->
+
+
+    <!-- start account -->
+
+    <section id="profile">
+        <div class="container">
+            <div class="account_dashboard">
+                <div class="row">
+                    <div class="col-sm-12 col-md-3 col-lg-3">
+                        <!-- Nav tabs -->
+                        <div class="dashboard_tab_button">
+                            <ul role="tablist" class="nav flex-column dashboard-list" id="nav-tab">
+                                <li><a href="#dashboard" data-toggle="tab" class="nav-link tab-link active">داشبورد</a>
+                                </li>
+                                <li><a href="#orders" data-toggle="tab" class="nav-link tab-link">سفارشات</a></li>
+                                <li><a href="#address" data-toggle="tab" class="nav-link tab-link">آدرس ها</a></li>
+                                <li><a href="#account-details" data-toggle="tab" class="nav-link tab-link">جزئیات
+                                    حساب</a></li>
+                                <li><a href="{% url 'logout' %}" class="nav-link">خروج</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-9 col-lg-9">
+                        <!-- Tab panes -->
+                        <div class="tab-content dashboard_content">
+                            <div class="tab-pane fade active show" id="dashboard">
+                                <h3>داشبورد </h3>
+                                <p>از پنل مدیریتی می توانید سفارشات اخیرخود را به راحتی بررسی کرده و
+                                    مشاهده کنید ، آدرس های حمل و نقل و صورتحساب خود را مدیریت کرده و
+                                    رمز عبور و جزئیات حساب خود را ویرایش کنید.</p>
+                            </div>
+                            <div class="tab-pane fade" id="orders">
+                                <h3>سفارشات</h3>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>محصول</th>
+                                            <th>تعداد</th>
+                                            <th>تاریخ</th>
+                                            <th>وضعیت</th>
+                                            <th>جمع</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% for client in clients %}
+                                            <tr>
+                                                <td>{{ client.product }}</td>
+                                                <td>{{ client.quantity }}</td>
+                                                <td>{{ client.Datetime|to_jalali:'%H:%M : %y/%m/%d' }}</td>
+                                                <td><span class="success">{{ client.status }}</span></td>
+                                                <td>{{ client.product.price|intcomma:False }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane" id="address">
+                                <p>آدرس های زیر به طور پیش فرض در صفحه پرداخت استفاده می شود.</p>
+                                <address>
+                                    {{ user.address }}
+                                </address>
+                                <p>ایران</p>
+                            </div>
+                            <div class="tab-pane fade" id="account-details">
+                                <h3>جزئیات حساب </h3>
+                                <div class="login-parent">
+                                    <div class="login_form_container">
+                                        <div class="account_login_form">
+                                            <form action="#">
+                                                <div class="input-radio">
+                                                    <span class="custom-radio"><input type="radio" value="1"
+                                                                                      name="id_gender"> آقا</span>
+                                                    <span class="custom-radio"><input type="radio" value="1"
+                                                                                      name="id_gender"> خانم</span>
+                                                </div>
+                                                <br>
+                                                <label>نام کاربری</label>
+                                                <input type="text" name="first-name" class="inp"
+                                                       value="{{ user.username }}">
+                                                <label>نام خانوادگی</label>
+                                                <input type="text" name="last-name" class="inp"
+                                                       value="{{ user.last_name }}">
+
+                                                <br>
+                                                <div class="save_button primary_btn default_button">
+                                                    <button type="submit" class="submit">ذخیره</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end account -->
+
+
+    <!-- back to top btn -->
+    <a href="#banner" id="back_to_top"></a>
+
+
+
+
+    <!-- scripts -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+        // wow
+        new WOW().init();
+
+
+        //tab
+        $('.tab-link').on('click', function (e) {
+            e.preventDefault()
+            $(this).tab('show')
+        })
+
+    </script>
+{% endblock body %}

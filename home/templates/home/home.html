@@ -1,0 +1,571 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block head %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/IMG_0695.JPEG' %}" type="image/x-icon">
+    <title>خانه</title>
+
+    <!-- links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock head %}
+
+{% block body %}
+
+    {% if messages %}
+        {% for message in messages %}
+            <div>
+                <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <!-- start slider section -->
+
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="start">
+                        <h1 class="wow fadeInUp">آکادمی لیلا معمر</h1>
+                        <p class="wow fadeInUp"> اولین و تنها مرکز تخصصی اکستنشن مژه در نازی آباد است .این
+                            مرکز تخصصی زیر نظر لیلا معمر؛ مستر آکادمی لوتوس روسیه و تنها آرتیست و عضو آکادمی فیلش اروپا
+                            در جنوب تهران و مستر اسیستنت دوره های فیلش اروپا در ایران است که برگزاری ورکشاپ های تخصصی
+                            اکستنشن مژه در تهران، کیش و سایر شهرهای ایران را در کارنامه فعالیت حرفه ای خود دارد.در این
+                            مرکز تاکنون بیش از ۱۰۰ هنرجوی موفق آموزش دیده و رهسپار مراکز کار شده اند.
+                        </p>
+                        </p>
+                        <a href="#team" class="wow fadeInUp">رزرو وقت</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- end slider section -->
+
+    <!-- start about section -->
+
+    <section id="about">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-2 g-3 align-items-center">
+                <div class="col">
+                    <div class="about-details wow slideInRight">
+                        <h2>
+                            درباره ما
+                        </h2>
+                        <p>آموزش و خدمات تخصصی در این مرکز به صورت گروهی و خصوصی برگزار می‌شود و در پایان هر دوره به
+                            هنرجویان مدرک معتبر بین المللی ارائه می شود. در این مرکز تخصصی همچنین، بیش از ۱۰ مژه کار
+                            حرفه ای فعالیت می‌کنند و سعی دارند تا با رفع نیاز مشتریان، آسایش و آرامش را برای آنان به
+                            ارمغان آورند.در آکادمی معمر علاوه بر انجام اکستنشن، لیفت و لمینت مژه، ابرو و کاشت موقت هم
+                            انجام می شود</p>
+                        <a href="{% url 'call:about' %}">بیشتر بخوانید</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="photo wow slideInLeft"><img src="{% static 'img/c.jpg' %}" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end about section -->
+
+
+
+    <!-- start WE LOVE WHAT WE DO -->
+
+    <section id="works">
+        <div class="container">
+            <div class="row ">
+                <div class="col">
+                    <div class="heading wow slideInDown">
+                        <h3>سوال های متناوب</h3>
+                        <p>بهتر است در یک کسب و کار متخصص خوبی باشید تا اینکه در چندین کسب و کار متوسط ​​باشید.
+                            استودیوی مژه ما مانند هیچ چیز دیگری در مورد آن می داند.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="items-list">
+                        <div class="row row-cols-2 row-cols-lg-4 g-4">
+                            <div class="col">
+                                <div class="item wow flipInX">
+                                    <img src="{% static 'img/icon_01-1.png' %}" alt="">
+                                    <div>
+                                        <h4>.مژه ها از چشمان ما محافظت می کنند !</h4>
+                                        <p>مژه ها هم مانند ابروهای ما ، موهای ریزی هستند که روی صورت ما قرار دارند و
+                                            آلودگی ، عرق ، آب و سایر بقایای ناخواسته را از سر راه خارج می کنند.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="item wow flipInX">
+                                    <img src="{% static 'img/icon_02-1.png' %}" alt="">
+                                    <div>
+                                        <h4>روزانه چند تار از مژه ها می ریزند !</h4>
+                                        <p>در سه ماهگی ، چرخه رشد مژه بسیار کند تر از موهای سر میشود – این به این دلیل
+                                            است که مژه ها به اندازه موها بلند نشوند و همیشه خیلی خیلی کوتاه تر از آنها
+                                            باشند.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="item wow flipInX">
+                                    <img src="{% static 'img/icon_03-1.png' %}" alt="">
+                                    <div>
+                                        <h4>تفاوت زیادی بین مژه های بالا و پایین شما وجود دارد !</h4>
+                                        <p>موهای روی قسمت بالایی چشم شما بسیار پرتر از مژه های پایین شما است. در حقیقت ،
+                                            مژه های بالایی تقریباً دو برابر پرتر هستند. تقریبا دو یا سه برابر مژه های
+                                            پایین هستند.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="item wow flipInX">
+                                    <img src="{% static 'img/icon_04.png' %}" alt="">
+                                    <div>
+                                        <h4>.مژه ها در سه دوره رشد می کند !</h4>
+                                        <p>سه مرحله با نام های : فاز آناژن (دوره رشد فعال) ، فاز کاتاژن (دوره انتقالی) و
+                                            فاز تلوژن (دوره استراحت) وجود دارد. و در هر زمان مشخص ، 90٪ از مژه های شما
+                                            در مرحله رشد فعال قرار دارند که تقریباً 16/0 میلی متر در روز رشد می کنند.
+                                            بنابراین ، اگر مژه های خود را برش دهید ، دوباره رشد می کند … فقط پنج ماه طول
+                                            می کشد.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end WE LOVE WHAT WE DO -->
+
+
+
+    <!-- start number section -->
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="numbers wow slideInUp">
+                        <div class="row row-cols-2 row-cols-md-4 g-4">
+                            <div class="col">
+                                <div class="number-item">
+                                    <h5>256+</h5>
+                                    <p>هنرجو ها</p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="number-item">
+                                    <h5>7+</h5>
+                                    <p>سال ها تجربه</p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="number-item">
+                                    <h5>5+</h5>
+                                    <p>کارمند ها</p>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="number-item">
+                                    <h5>745+</h5>
+                                    <p>مشتری ها</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end number section -->
+
+
+
+    <!-- start portolio -->
+
+    <section id="portfolio">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-2 align-items-center">
+                <div class="col">
+                    <div class="portfolio-heading wow bounceInRight">
+                        <h3>نمونه کارهای لیلا معمر </h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="portfolio-gallery">
+                        <div class="tab">
+                            <ul>
+                                <li data-name="cut" class="active">همه</li>
+                            </ul>
+                        </div>
+                        <div class="tab-content wow zoomIn">
+                            <div class="content active" id="cut">
+                                {% for ostad in ostads %}
+                                    {% if ostad.image1 %}
+                                        <div><img
+                                                src="{{ ostad.image1.url }}"
+                                                alt=""></div>
+                                    {% endif %}
+
+                                    {% if ostad.image2 %}
+                                        <div><img
+                                                src="{{ ostad.image2.url }}"
+                                                alt=""></div>
+                                    {% endif %}
+
+                                    {% if ostad.image3 %}
+                                        <div><img
+                                                src="{{ ostad.image3.url }}"
+                                                alt=""></div>
+                                    {% endif %}
+
+                                    {% if ostad.image4 %}
+                                        <div><img
+                                                src="{{ ostad.image4.url }}"
+                                                alt=""></div>
+                                    {% endif %}
+
+                                    {% if ostad.image5 %}
+                                        <div><img
+                                                src="{{ ostad.image5.url }}"
+                                                alt=""></div>
+                                    {% endif %}
+
+                                    {% if ostad.image6 %}
+                                        <div><img src="{{ ostad.image6.url }}"
+                                                  alt=""></div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end portolio -->
+
+
+    <!-- start team -->
+
+    <section id="team">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="heading">
+                        <h3> تیم حرفه ای ما</h3>
+                        <p>
+                            برای رزرو وقت و درباره شخص کافیس یک نفر رو انتخاب کنید
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!--  -->
+            {% for ostad in ostads %}
+                <div class="row g-4 mt-4 mb-5 wow fadeInUp">
+                    <div class="col-12 col-md-5 col-lg-4 m-auto">
+                        <a href="{{ ostad.get_absolute_url }}" class="team-item">
+                            {% if ostad.image %}
+                                <img src="{{ ostad.image.url }}" alt="">
+                            {% endif %}
+                            <div class="info">
+                                <h3>{{ ostad.name }}</h3>
+                                <span>{{ ostad.work }}</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+            <!--  -->
+            <div class="row row-cols-2 row-cols-md-auto justify-content-center g-3 wow fadeInUp assistant">
+                {% for team in teams %}
+                    <div class="col">
+                        <a href="{{ team.get_absolute_url }}" class="team-item">
+                            {% if team.image %}
+                                <img src="{{ team.image.url }}" alt="">
+                            {% endif %}
+                            <div class="info">
+                                <h3>{{ team.name }}</h3>
+                                <span>{{ team.work }}</span>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+
+    <!-- end team -->
+
+
+
+    <!-- start skill -->
+
+    <section id="skill">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col">
+                    <div class="heading wow slideInRight">
+                        <h3>تیم حرفه ای</h3>
+                        <p>
+                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
+                            چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
+                            تکنولوژی مورد نیاز
+                        </p>
+                        <a href="{% url 'my_team:my_team' %}">مشاهده بیشتر</a>
+                    </div>
+                </div>
+                <div class="col text-center">
+                    <div>
+                        <div class="skill-section">
+                            <div class="skill-item circle-3 wow flipInX" data-num="50">
+                                <div class="skill" style="--i:85%">
+                                    <span>85%</span>
+                                </div>
+                                <h4>اکستنشن</h4>
+                            </div>
+                            <div class="skill-item circle-3 wow flipInX" data-wow-delay=".5s" data-num="90">
+                                <div class="skill" style="--i:95%">
+                                    <span>95%</span>
+                                </div>
+                                <h4>اکستنشن</h4>
+                            </div>
+                            <div class="skill-item circle-3 wow flipInX" data-wow-delay="1s" data-num="100">
+                                <div class="skill" style="--i:100%">
+                                    <span>100%</span>
+                                </div>
+                                <h4>اکستنشن</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end skill -->
+
+
+    <!-- start time -->
+
+    <section id="time">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-2 g-3 align-items-center">
+                <div class="col">
+                    <div class="time wow slideInRight">
+                        <div class="time-heading">
+                            <h3>ساعات کاری</h3>
+                            <p>با مژه های کشیده عالی به نظر می رسید, جلب رضایت شما, باعث دل گریم ماست ♥
+                            </p>
+                        </div>
+                        <div class="time-list">
+                            <div>
+                                <p>روزهای هفته</p>
+                                <p>20:00 – 09:00</p>
+                            </div>
+                            <div>
+                                <p>پنج شنبه</p>
+                                <p>19:00 – 10:00</p>
+                            </div>
+                            <div>
+                                <p>جمعه</p>
+                                <p>بسته</p>
+                            </div>
+                        </div>
+                        <div>
+                            <a href="#team" class="book">رزرو وقت</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col text-center">
+                    <div class="wow slideInLeft">
+                        <img src="{% static 'img/v.jpg' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end time -->
+
+    <!-- start PEOPLE SAY -->
+
+    <section id="people">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="heading">
+                        <h3>نظر مشتریان</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="owl-carousel">
+                        <div class="item">
+                            <div class="people">
+                                <img src="{% static 'img/download.png' %}" alt="">
+                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                    گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای
+                                    شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می
+                                    باشد</p>
+                                <span>فاطمه احمدی</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="people">
+                                <img src="{% static 'img/download.png' %}" alt="">
+                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                    گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای
+                                    شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می
+                                    باشد</p>
+                                <span>فاطمه احمدی</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="people">
+                                <img src="{% static 'img/download.png' %}" alt="">
+                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                    گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای
+                                    شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می
+                                    باشد</p>
+                                <span>فاطمه احمدی</span>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="people">
+                                <img src="{% static 'img/download.png' %}" alt="">
+                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                                    گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای
+                                    شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می
+                                    باشد</p>
+                                <span>فاطمه احمدی</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end PEOPLE SAY -->
+
+
+    <!-- start brands -->
+
+    <section id="brand">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col text-center">
+                    <div><img src="{% static 'img/partners_01.png' %}" alt=""></div>
+                </div>
+                <div class="col text-center">
+                    <div><img src="{% static 'img/partners_02.png' %}" alt=""></div>
+                </div>
+                <div class="col text-center">
+                    <div><img src="{% static 'img/partners_03.png' %}" alt=""></div>
+                </div>
+                <div class="col  text-center">
+                    <div><img src="{% static 'img/partners_04.png' %}" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end brands -->
+
+
+
+    <!-- start blog -->
+
+    <section id="blog">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="heading wow slideInUp">
+                        <h3>اخبار اخیر زیبایی</h3>
+                        <p>
+                            به گزارش صدآنلاین درخصوص تاثیر استفاده از لنز‌های رنگی و زیبایی در بروز مشکلات چشم‌پزشکی،
+                            گفت: در صورتی که به شکل کاملا بهداشتی از این لنز‌ها استفاده شود و خود لنز هم از مراکز مجاز و
+                            معتبر تهیه شود، مشکلات کمتری وجود خواهد داشت. نکته مهم استفاده درست از محلول‌های مخصوص برای
+                            لنز‌ها است و تحت هیچ عنوان نباید از آب شهری برای شستشوی لنز استفاده شود؛ زیرا می‌تواند سبب
+                            بروز عفونت قرنیه شود که عوارضی همچون کدورت قرنیه تا سوراخ شدن قرنیه یا نابینایی را در پی
+                            خواهد داشت.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end blog -->
+
+
+
+    <!-- back to top btn -->
+    <a href="#hero" id="back_to_top"></a>
+
+
+
+
+    <!-- scripts -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+
+        // wow
+        new WOW().init();
+
+
+        // testimonial
+        $('.owl-carousel').owlCarousel({
+            rtl: true,
+            loop: true,
+            margin: 25,
+            nav: false,
+            dots: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 1
+                },
+                1000: {
+                    items: 1
+                }
+            }
+        })
+
+
+    </script>
+{% endblock body %}

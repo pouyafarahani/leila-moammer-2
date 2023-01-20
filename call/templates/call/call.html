@@ -1,0 +1,127 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block head %}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %} call with me {% endblock title %}
+    </title>
+    <!-- links -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.rtl.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock head %}
+
+
+<{% block body %}
+
+
+    <!-- start banner -->
+
+    <section id="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="banner-detals">
+                        <h1>تماس با ما</h1>
+                        <p>خانه / <span>تماس با ما</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end banner -->
+
+
+    <!-- start contact -->
+
+    <section id="contact">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-2 g-3 align-items-center">
+                <div class="col">
+                    <div>
+                        <h3>با ما در تماس باشید</h3>
+                        <p>ما تضمین می کنیم که می توانیم هر مشکلی را در عرض 24 ساعت حل کنیم.</p>
+                        <div class="address-section">
+                            <p><i class="fa-solid fa-map"></i>
+                                نازی آباد. خیابان بابایی(مدائن) .جنب پاساژ کویتیها<br>.پلاک ۱۷۷.طبقه سوم
+                            </p>
+                        </div>
+                        <div class="phone-section">
+                            پشتیبانی سایت 👨‍💻
+                            <a href=""><i class="fa-solid fa-phone"></i>
+                                09301151298</a>
+                        </div>
+                        <div class="email-section">
+                            <a href=""><i class="fa-solid fa-envelope"></i>
+                                pouyafarahanj@gmail.com
+                            </a>
+                        </div>
+                        <div class="media-contact">
+                            <ul>
+                                <li><a href="https://www.instagram.com/pouyafarahanj/"><i
+                                        class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href="https://web.whatsapp.com/send?phone=989301151298"><i
+                                        class="fa-brands fa-whatsapp"></i></a></li>
+                                <li><a href="https://t.me/pouyafarahani"><i class="fa-brands fa-telegram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d202.66487451543625!2d51.40627806696064!3d35.63664994194427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f91ffedb5f13329%3A0x59252b2c105aba5b!2z2Kfaqdin2K_ZhduMINmE24zZhNinINmF2LnZhdix!5e0!3m2!1sfa!2s!4v1672596732661!5m2!1sfa!2s"
+                                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end contact -->
+
+
+    <!-- back to top btn -->
+    <a href="#banner" id="back_to_top"></a>
+
+
+
+
+    <!-- scripts -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script>
+
+        //scroll-top
+
+        let scroll_btn = document.querySelector('#back_to_top')
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scroll_btn.classList.add('opacity')
+            } else {
+                scroll_btn.classList.remove('opacity')
+            }
+        })
+
+
+        // menu
+        let openBtn = document.querySelector('.open-btn')
+        let menu = document.querySelector('.menu')
+
+        openBtn.addEventListener('click', menuhandle)
+
+        function menuhandle() {
+            menu.classList.toggle('open')
+        }
+
+    </script>
+{% endblock body %}
